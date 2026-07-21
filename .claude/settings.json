@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(browse open *)",
+      "Bash(browse get *)",
+      "Bash(python3 -c ' *)",
+      "Bash(browse screenshot *)",
+      "Bash(browse eval '\\(\\(\\) => { *)",
+      "Bash(lsof -ti:3002)",
+      "Bash(xargs kill -9)",
+      "Bash(npm run *)",
+      "Bash(browse stop *)",
+      "Bash(browse eval *)"
+    ]
+  }
+}
