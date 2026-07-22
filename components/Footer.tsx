@@ -107,11 +107,11 @@ export default function Footer() {
       <div className="container-page mt-16 text-center text-xs text-white">
         <p>
           {new Date().getFullYear()} © Tüm hakları saklıdır |{" "}
-          <Link href="/en/privacy-policy-description" className="hover:text-gold-light">
+          <Link href="/tr/gizlilik-politikasi" className="hover:text-gold-light">
             Gizlilik Politikası
           </Link>{" "}
           |{" "}
-          <Link href="/en/general-terms-and-conditions-description" className="hover:text-gold-light">
+          <Link href="/tr/kullanim-sartlari" className="hover:text-gold-light">
             Şartlar ve Koşullar
           </Link>
         </p>

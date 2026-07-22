@@ -14,7 +14,7 @@ const infoCardGoldClass = "flex flex-col justify-center rounded-2xl bg-gold px-6
 export default function ContactsPage() {
   return (
     <>
-      <PageBanner title="İletişim" crumbs={[{ href: "/en", label: "Anasayfa" }]} />
+      <PageBanner title="İletişim" crumbs={[{ href: "/tr", label: "Anasayfa" }]} />
 
       <section className="bg-white py-16">
         <div className="container-page grid gap-6 lg:grid-cols-[1fr_1.3fr]">

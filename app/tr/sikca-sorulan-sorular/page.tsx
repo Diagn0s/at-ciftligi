@@ -13,7 +13,7 @@ export default function FaqPage() {
     <>
       <PageBanner
         title="Sıkça Sorulan Sorular"
-        crumbs={[{ href: "/en", label: "Anasayfa" }]}
+        crumbs={[{ href: "/tr", label: "Anasayfa" }]}
       />
 
       <section className="bg-white py-16">

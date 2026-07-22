@@ -10,7 +10,7 @@ export const metadata = {
 export default function HorsesPage() {
   return (
     <>
-      <PageBanner title="Atlarımız" crumbs={[{ href: "/en", label: "Anasayfa" }]} />
+      <PageBanner title="Atlarımız" crumbs={[{ href: "/tr", label: "Anasayfa" }]} />
 
       <section className="bg-white pb-16">
         <div className="container-page">

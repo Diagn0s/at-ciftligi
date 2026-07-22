@@ -32,8 +32,8 @@ export default async function ServiceDetailPage({
       <PageBanner
         title={service.title}
         crumbs={[
-          { href: "/en", label: "Anasayfa" },
-          { href: "/en/services", label: "Hizmetler" },
+          { href: "/tr", label: "Anasayfa" },
+          { href: "/tr/hizmetler", label: "Hizmetler" },
         ]}
       />
 

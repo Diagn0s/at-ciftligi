@@ -10,7 +10,11 @@
       "Bash(xargs kill -9)",
       "Bash(npm run *)",
       "Bash(browse stop *)",
-      "Bash(browse eval *)"
+      "Bash(browse eval *)",
+      "Bash(browse --help)",
+      "Bash(browse viewport *)",
+      "Bash(browse click *)",
+      "Bash(browse mouse *)"
     ]
   }
 }

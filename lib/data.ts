@@ -23,21 +23,21 @@ export const siteInfo = {
 };
 
 export const navLinks = [
-  { href: "/en", label: "Anasayfa" },
-  { href: "/en/all-products", label: "Atlar" },
-  { href: "/en/services", label: "Hizmetler" },
-  { href: "/en/blog", label: "Blog" },
-  { href: "/en/about-us", label: "Hakkımızda" },
-  { href: "/en/frequently-asked-questions", label: "SSS" },
-  { href: "/en/contacts", label: "İletişim" },
+  { href: "/tr", label: "Anasayfa" },
+  { href: "/tr/atlar", label: "Atlar" },
+  { href: "/tr/hizmetler", label: "Hizmetler" },
+  { href: "/tr/blog", label: "Blog" },
+  { href: "/tr/hakkimizda", label: "Hakkımızda" },
+  { href: "/tr/sikca-sorulan-sorular", label: "SSS" },
+  { href: "/tr/iletisim", label: "İletişim" },
 ];
 
 export const footerMenu = [
-  { href: "/en", label: "Anasayfa" },
-  { href: "/en/frequently-asked-questions", label: "SSS" },
-  { href: "/en/privacy-policy-description", label: "Gizlilik Politikası" },
-  { href: "/en/about-us", label: "Hakkımızda" },
-  { href: "/en/contacts", label: "İletişim" },
+  { href: "/tr", label: "Anasayfa" },
+  { href: "/tr/sikca-sorulan-sorular", label: "SSS" },
+  { href: "/tr/gizlilik-politikasi", label: "Gizlilik Politikası" },
+  { href: "/tr/hakkimizda", label: "Hakkımızda" },
+  { href: "/tr/iletisim", label: "İletişim" },
 ];
 
 export const newsletterText =

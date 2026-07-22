@@ -34,7 +34,7 @@ export default async function BlogDetailPage({
     <>
       <PageBanner
         title={post.title}
-        crumbs={[{ href: "/en", label: "Anasayfa" }, { href: "/en/blog", label: "Blog" }]}
+        crumbs={[{ href: "/tr", label: "Anasayfa" }, { href: "/tr/blog", label: "Blog" }]}
       />
 
       <section className="bg-white py-16">

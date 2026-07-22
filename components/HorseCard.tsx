@@ -5,7 +5,7 @@ import type { Horse } from "@/lib/data";
 export default function HorseCard({ horse }: { horse: Horse }) {
   return (
     <Link
-      href={`/en/all-products/${horse.slug}`}
+      href={`/tr/atlar/${horse.slug}`}
       className="group relative block h-72 w-full overflow-hidden rounded-2xl"
     >
       <Image

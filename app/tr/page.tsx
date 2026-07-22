@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, LineChart, Lightbulb, CreditCard, Target, Wind, 
 import SectionHeading from "@/components/SectionHeading";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
 import ContactNewsletterSection from "@/components/ContactNewsletterSection";
+import HorseCarousel from "@/components/HorseCarousel";
 import {
   horses,
   stats,
@@ -23,7 +24,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[720px] items-center overflow-hidden bg-dark text-white">
+      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-dark text-white lg:min-h-[720px]">
         <Image src="/images/hero.jpg" alt="" fill priority className="object-cover" />
 
         <div className="container-page relative z-10 w-full py-32">
@@ -47,41 +48,58 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="container-page absolute bottom-8 left-0 right-0 z-10 flex items-center justify-center gap-10 text-sm">
-          <Link href="/en/all-products" className="flex items-center gap-2 font-medium hover:text-gold-light">
-            <ArrowLeft className="h-4 w-4" /> Atlarımız
-          </Link>
-          <span className="h-2.5 w-2.5 rounded-full bg-gold-light" />
-          <Link href="/en/services" className="flex items-center gap-2 font-medium hover:text-gold-light">
-            Hizmetler <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="container-page absolute bottom-8 left-0 right-0 z-10">
+          {/* Mobile: stacked, minimal-width pill buttons */}
+          <div className="flex flex-col items-center gap-3 lg:hidden">
+            <Link
+              href="/tr/atlar"
+              className="inline-flex items-center gap-2 rounded-full border border-white/70 px-8 py-2.5 text-sm font-medium hover:border-gold-light hover:text-gold-light"
+            >
+              <ArrowLeft className="h-4 w-4" /> Atlarımız
+            </Link>
+            <Link
+              href="/tr/hizmetler"
+              className="inline-flex items-center gap-2 rounded-full border border-white/70 px-8 py-2.5 text-sm font-medium hover:border-gold-light hover:text-gold-light"
+            >
+              Hizmetler <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {/* Desktop: compact inline row */}
+          <div className="hidden items-center justify-center gap-10 text-sm lg:flex">
+            <Link href="/tr/atlar" className="flex items-center gap-2 font-medium hover:text-gold-light">
+              <ArrowLeft className="h-4 w-4" /> Atlarımız
+            </Link>
+            <span className="h-2.5 w-2.5 rounded-full bg-gold-light" />
+            <Link href="/tr/hizmetler" className="flex items-center gap-2 font-medium hover:text-gold-light">
+              Hizmetler <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Atlarımıza göz atın! */}
-      <section className="bg-white py-24">
-        <div className="container-page grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="text-center lg:text-center">
-            <SectionHeading goldWord="Atlarımıza" darkWord="göz atın!" script="Tüm galeri" align="center" />
-            <p className="mt-6 leading-relaxed text-black/60">{homeHorsesIntro}</p>
-            <Link
-              href="/en/all-products"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-dark px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-dark-soft"
-            >
-              Tüm atları görüntüle <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {galleryHorses.map((horse, i) => (
-              <div
-                key={horse.slug}
-                className={`relative overflow-hidden rounded-lg ${i === 0 ? "col-span-2 h-64" : "h-48"}`}
-              >
-                <Image src={horse.image} alt={horse.name} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
+      <section className="relative overflow-hidden py-24">
+        <Image src="/images/formbg.jpg" alt="" fill className="object-cover" />
+
+        <div className="container-page relative z-10 text-center">
+          <h2 className="font-sans text-4xl font-bold leading-tight sm:text-5xl lg:text-[4.4rem]">
+            <span className="text-dark">Atlarımıza göz</span>{" "}
+            <span className="text-gold">atın!</span>
+          </h2>
+          <p className="font-script mt-1 text-3xl text-gold-light sm:text-4xl">Tüm galeri</p>
+
+          <p className="mx-auto mt-6 max-w-3xl leading-relaxed text-dark/70">{homeHorsesIntro}</p>
+
+          <Link
+            href="/tr/atlar"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border border-dark px-8 py-3 text-sm font-medium text-dark hover:bg-dark hover:text-white"
+          >
+            Tüm atları görüntüle <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
+
+        <HorseCarousel horses={galleryHorses} />
       </section>
 
       {/* Aslında ne yapıyoruz */}
@@ -96,11 +114,11 @@ export default function HomePage() {
             <SectionHeading goldWord="Aslında" darkWord="ne yapıyoruz" script="Biz böyleyiz" light align="center" />
             <p className="mt-6 leading-relaxed text-white/60">{homeWhatWeDoText}</p>
             <div className="mt-8 flex items-center justify-center gap-10 text-sm">
-              <Link href="/en/about-us" className="flex items-center gap-2 font-medium hover:text-gold-light">
+              <Link href="/tr/hakkimizda" className="flex items-center gap-2 font-medium hover:text-gold-light">
                 <ArrowLeft className="h-4 w-4" /> Hakkımızda
               </Link>
               <span className="h-2.5 w-2.5 rounded-full bg-gold-light" />
-              <Link href="/en/contacts" className="flex items-center gap-2 font-medium hover:text-gold-light">
+              <Link href="/tr/iletisim" className="flex items-center gap-2 font-medium hover:text-gold-light">
                 Referanslarımız <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -112,14 +130,14 @@ export default function HomePage() {
       <section className="bg-white py-24">
         <div className="container-page">
           <SectionHeading goldWord="Rakamlarla" darkWord="biz" script="Rakamlar bizim adımıza konuşuyor" align="center" />
-          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4 lg:text-left">
             {stats.map((stat, i) => (
               <div key={i}>
                 <p className="font-sans text-4xl font-medium text-dark">
                   {stat.value}
                   <span className="text-gold">{stat.suffix}</span>
                 </p>
-                <div className="mt-3 h-1 w-20 bg-cream" />
+                <div className="mx-auto mt-3 h-1 w-20 bg-cream lg:mx-0" />
                 <p className="mt-4 font-sans font-medium text-gold">{stat.label}</p>
                 <p className="mt-1 text-sm leading-relaxed text-black/50">{stat.label2}</p>
               </div>
@@ -129,7 +147,7 @@ export default function HomePage() {
       </section>
 
       {/* Hizmetlerimiz hakkında */}
-      <section className="bg-cream py-24">
+      <section className="bg-white py-24">
         <div className="container-page">
           <SectionHeading goldWord="Hizmetlerimiz" darkWord="hakkında" script="Çözümlerimiz" align="center" />
           <p className="mt-8 leading-relaxed text-black/60">{homeServicesIntro}</p>
@@ -139,7 +157,7 @@ export default function HomePage() {
               return (
                 <div
                   key={i}
-                  className="rounded-[20px] border border-[#f1f6f7] bg-white p-9 shadow-sm"
+                  className="rounded-[20px] border border-[#f1f6f7] bg-white p-9"
                 >
                   <div className="flex h-[74px] w-[74px] items-center justify-center rounded-full border border-gold">
                     <Icon className="h-7 w-7 text-gold" strokeWidth={1.5} />
@@ -158,7 +176,7 @@ export default function HomePage() {
               <p className="leading-relaxed text-black/60">{homeServicesOutro}</p>
             </div>
             <Link
-              href="/en/services"
+              href="/tr/hizmetler"
               className="flex shrink-0 items-center gap-4 font-sans font-medium text-gold hover:text-dark"
             >
               <span className="h-px w-8 bg-gold" /> Tüm hizmetler

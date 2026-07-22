@@ -26,7 +26,7 @@ export default function ServiceCard({
         <h3 className="font-sans text-4xl font-bold text-dark">{service.title}</h3>
         <p className="mt-4 leading-relaxed text-black/60">{service.excerpt}</p>
         <Link
-          href={`/en/services/${service.slug}`}
+          href={`/tr/hizmetler/${service.slug}`}
           className="mt-6 inline-flex items-center rounded-full border border-dark px-8 py-2.5 text-sm font-medium text-dark hover:bg-dark hover:text-white"
         >
           İncele

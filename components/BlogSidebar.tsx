@@ -16,7 +16,7 @@ export default function BlogSidebar() {
         </h3>
         <p className="text-sm text-black/50">{author.role}</p>
         <Link
-          href="/en/about-us"
+          href="/tr/hakkimizda"
           className="mt-4 inline-flex items-center rounded-full border border-dark px-6 py-2 text-sm font-medium text-dark hover:bg-dark hover:text-white"
         >
           Tanıtım
@@ -28,7 +28,7 @@ export default function BlogSidebar() {
         <ul className="mt-4 flex flex-col gap-2 text-sm">
           {blogCategories.map((cat) => (
             <li key={cat}>
-              <Link href="/en/blog" className="text-gold hover:text-dark">
+              <Link href="/tr/blog" className="text-gold hover:text-dark">
                 {cat}
               </Link>
             </li>

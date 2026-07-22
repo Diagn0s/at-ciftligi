@@ -18,7 +18,7 @@ export const metadata = {
 export default function AboutUsPage() {
   return (
     <>
-      <PageBanner title="Hakkımızda" crumbs={[{ href: "/en", label: "Anasayfa" }]} />
+      <PageBanner title="Hakkımızda" crumbs={[{ href: "/tr", label: "Anasayfa" }]} />
 
       <section className="bg-white py-16">
         <div className="container-page mx-auto flex max-w-3xl flex-col gap-8">
@@ -36,14 +36,14 @@ export default function AboutUsPage() {
           <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-black/60">
             {aboutNumbersIntro}
           </p>
-          <div className="mt-16 grid gap-10 text-left sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4 lg:text-left">
             {stats.map((stat, i) => (
               <div key={i}>
                 <p className="font-sans text-4xl font-medium text-dark">
                   {stat.value}
                   <span className="text-gold">{stat.suffix}</span>
                 </p>
-                <div className="mt-3 h-1 w-20 bg-white" />
+                <div className="mx-auto mt-3 h-1 w-20 bg-white lg:mx-0" />
                 <p className="mt-4 font-sans font-medium text-gold">{stat.label}</p>
                 <p className="mt-1 text-sm leading-relaxed text-black/50">{stat.label2}</p>
               </div>

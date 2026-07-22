@@ -10,7 +10,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageBanner title="Hizmetler" crumbs={[{ href: "/en", label: "Anasayfa" }]} />
+      <PageBanner title="Hizmetler" crumbs={[{ href: "/tr", label: "Anasayfa" }]} />
 
       <section className="bg-white py-16">
         <div className="container-page flex flex-col gap-20">

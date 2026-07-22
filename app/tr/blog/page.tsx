@@ -14,7 +14,7 @@ export const metadata = {
 export default function BlogPage() {
   return (
     <>
-      <PageBanner title="Blog" crumbs={[{ href: "/en", label: "Anasayfa" }]} />
+      <PageBanner title="Blog" crumbs={[{ href: "/tr", label: "Anasayfa" }]} />
 
       <section className="bg-white py-16">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_320px]">

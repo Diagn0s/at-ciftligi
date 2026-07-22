@@ -48,9 +48,9 @@ export default async function HorseDetailPage({
       <PageBanner
         title={horse.name}
         crumbs={[
-          { href: "/en", label: "Anasayfa" },
-          { href: "/en/all-products", label: "Ürünler" },
-          { href: `/en/all-products`, label: horse.category },
+          { href: "/tr", label: "Anasayfa" },
+          { href: "/tr/atlar", label: "Atlarımız" },
+          { href: `/tr/atlar`, label: horse.category },
         ]}
       />
 
