@@ -7,7 +7,8 @@ import type { Horse } from "@/lib/data";
 
 export default function HorseCarousel({ horses }: { horses: Horse[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const paused = useRef(false);
+  const interacting = useRef(false);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dragging = useRef(false);
   const moved = useRef(false);
   const startX = useRef(0);
@@ -21,6 +22,23 @@ export default function HorseCarousel({ horses }: { horses: Horse[] }) {
     setReady(true);
   }, []);
 
+  // any scroll (touch swipe, mouse drag, wheel, programmatic) pauses
+  // auto-scroll briefly — this is time-based so it can never get stuck,
+  // unlike pairing pointerdown/up/cancel events by hand.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const onScroll = () => {
+      interacting.current = true;
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+      resumeTimer.current = setTimeout(() => {
+        interacting.current = false;
+      }, 1200);
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => track.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     if (!ready) return;
     const track = trackRef.current;
@@ -28,7 +46,7 @@ export default function HorseCarousel({ horses }: { horses: Horse[] }) {
 
     let raf: number;
     const step = () => {
-      if (!paused.current && !dragging.current) {
+      if (!interacting.current) {
         track.scrollLeft += 0.6;
         const half = track.scrollWidth / 2;
         if (track.scrollLeft >= half) {
@@ -41,12 +59,13 @@ export default function HorseCarousel({ horses }: { horses: Horse[] }) {
     return () => cancelAnimationFrame(raf);
   }, [ready]);
 
+  // mouse-only click-and-drag (touch devices already get native swipe scrolling)
   const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
     const track = trackRef.current;
     if (!track) return;
     dragging.current = true;
     moved.current = false;
-    paused.current = true;
     startX.current = e.pageX;
     startScroll.current = track.scrollLeft;
     track.setPointerCapture(e.pointerId);
@@ -62,7 +81,6 @@ export default function HorseCarousel({ horses }: { horses: Horse[] }) {
 
   const endDrag = () => {
     dragging.current = false;
-    paused.current = false;
   };
 
   return (
@@ -71,15 +89,8 @@ export default function HorseCarousel({ horses }: { horses: Horse[] }) {
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
-      onPointerLeave={() => {
-        endDrag();
-      }}
-      onMouseEnter={() => {
-        paused.current = true;
-      }}
-      onMouseLeave={() => {
-        if (!dragging.current) paused.current = false;
-      }}
+      onPointerCancel={endDrag}
+      onPointerLeave={endDrag}
       className="relative z-10 mt-16 w-full cursor-grab overflow-x-auto active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     >
       <div className="flex w-max items-center gap-6 px-6 sm:px-10">
